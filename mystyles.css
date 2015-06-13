@@ -33,3 +33,14 @@
 	color:#808080;
 	padding:60px;
 }
+
+.question_text{
+	color:#808080;
+	padding:30px;
+}
+
+.questiondiv{
+	margin-top: 100px;
+	height:150px;
+	//display: none;
+}

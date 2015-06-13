@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="surveyApp" >
+<head>
+<meta charset="UTF-8">
+<title>Survey test</title>
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"></link>
+<link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"></link>
+<link href="mystyles.css" rel="stylesheet"></link>
+<script src="angular/angular/angular.js"></script>
+<script src="angular/angular-animate/angular-animate.js"></script>
+<script src="angular/angular-route/angular-route.js"></script>
+<script src="angular/angular-resource/angular-resource.js"></script>
+<script src="angularjs/app.js"></script>
+<script src="angularjs/controllers.js"></script>
+
+<!-- jQuery script for slideDown, perhaps not working with AngularJS
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script>
+$.noConflict();
+jQuery(document).ready(function(){
+    jQuery("#quesdiv").slideDown("slow");
+});
+</script>
+-->
+
+</head>
+
+<body class="body" ng-controller="questionCtrl">
+	<div class="header_body">
+		<h1 class="main_header">Survey for Video Memorability</h1>
+	</div>
+	<div class="video_body">
+		<div class="question_text">
+			<center><h2><b>Questions</b></h2></center>
+			<br>
+			<p>{{checker}} Please answer the following questions based on what you think you saw. Please answer diligently because if you answer more than 4 incorrect answers your response will not be taken. Each question will have 10 seconds.</p>
+			<ul>
+				<li ng-repeat="ques in questions">
+					<div class="questiondiv" id="quesdiv" >
+						<h3>1. Did you see {{ques.option}} in the video?</h3>
+						<input type="radio" name="option" value="1" style="margin-left:20px;margin-right:10px">Yes</input>
+						<input type="radio" name="option" value="0" style="margin-left:40px;margin-right:10px">No</input>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>
