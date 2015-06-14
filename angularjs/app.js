@@ -13,9 +13,7 @@ surveyApp.factory('Questions',function($resource){
     return $resource('./data/sequence08.json', {}, {query: {method:'GET', isArray:true}, 'save':   {method:'POST'}});
   });
 
-
-/*
-surveyApp.config(['$routeProvider','$locationProvider',
+/*surveyApp.config(['$routeProvider','$locationProvider',
   function($routeProvider,$locationProvider) {
     $routeProvider.
       when('/', {
@@ -30,4 +28,5 @@ surveyApp.config(['$routeProvider','$locationProvider',
         redirectTo: '/'
       });
       $locationProvider.html5Mode(true);
-  }]);*/
+  }]);
+*/
