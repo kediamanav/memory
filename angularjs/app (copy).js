@@ -21,24 +21,24 @@ surveyApp.factory('Videos',function($resource){
 surveyApp.config(['$routeProvider','$locationProvider',
   function($routeProvider,$locationProvider) {
     $routeProvider.
-      when('/home/:id', {
-        templateUrl: '/partials/home.html',
+      when('/', {
+        templateUrl: 'partials/home.html',
         controller: 'videoCtrl'
       }).
-      when('/questions/:id', {
-        templateUrl: '/partials/questions.html',
+      when('/questions', {
+        templateUrl: 'partials/questions.html',
         controller: 'questionCtrl'
       }).
-      when('/instructions/:id', {
-        templateUrl: '/partials/instructions.html',
-        controller: 'instructionCtrl'
+      when('/instructions', {
+        templateUrl: 'partials/instructions.html',
+        controller: 'questionCtrl'
       }).
-      when('/thankyou/:id', {
-        templateUrl: '/partials/thankyou.html',
+      when('/thankyou', {
+        templateUrl: 'partials/thankyou.html',
         controller: 'thankCtrl'
       }).
       otherwise({
-        redirectTo: '/home/:id'
+        redirectTo: '/'
       });
       $locationProvider.html5Mode(true);
 }]);

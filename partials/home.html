@@ -1,0 +1,37 @@
+<script>
+	initPlayer();
+</script>
+<div class="header_body">
+	<h1 class="main_header">Survey for Video Viewing</h1>
+</div>
+
+<div class="video_body">
+	<div id="videobodynctr">
+		<video id="videotag" class="video_iframe" ng-src="{{videosrc}}" width="600" height="450">
+		  Your browser does not support the video tag.
+		</video>
+		<!--<iframe class="video_iframe" iframe width="600" height="400" src="https://www.youtube.com/embed/3WZKg1i9meM?showinfo=0&autohide=1" allowfullscreen frameborder="0"></iframe>-->
+	</div>
+	<div class="video_text">
+		<h2><b>Survey Video</b></h2>
+		<br>
+		<p>Watch the entire video carefully. The video will automatically disappear after playing it. Do not pause as the video is timed to disappear after its length. The length of the video is roughly 8 minutes. After viewing you will be redirected to a survey where you have to answer 20 questions, with each question having a time limit of 10 seconds.</p>
+		<button id="start_survey" type="button" class="btn btn-default" style="margin-top:20px" onclick="playVideo()">Start Survey</button>
+	</div>
+	<div id="videoControls">
+		<div id="button_controls">
+	        <!--<button id="play" title="Play"> &#x25BA; </button>-->
+            <button id="volDn"  title="Volume down button">-</button>
+            <button id="volUp"  title="Volume up button">+</button>
+            <button id="mute" title="Mute button" ><img id="muteimage" alt="Volume on button" src="images/unmute.png" /></button> 
+        </div>
+        <div id="progress">  
+            <div id="progress_box">
+                <span id="play_progress"></span> 
+            </div>
+        </div>
+        <div id="fsdiv">
+        	<button id="fullScreen" title="FullScreen Toggle"><img id="fsimage" src="images/fullscreen.png" /></button> 
+        </div>
+    </div>
+</div>

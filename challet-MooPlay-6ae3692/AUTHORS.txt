@@ -1,3 +1,0 @@
-MooPlay by Clément Hallet http://github.com/challet
-Mootools and Slick by the Mootools dev team http://mootools.net
-ProgressBar by David Walsh http://mootools.net/forge/p/progressbar

@@ -4,9 +4,9 @@
 
 var surveyControllers = angular.module('surveyControllers', []);
 
-surveyControllers.controller('questionCtrl', ['$scope','$interval','$rootScope', '$http','Questions','ngRoute','$routeParams',
-  function($scope, $interval, $rootScope, $http, Questions,$routeParams) {
-    $scope.questions = Questions.query({id: $routeParams.id});
+surveyControllers.controller('questionCtrl', ['$scope','$interval','$rootScope', '$http','Questions',
+  function($scope, $interval, $rootScope, $http, Questions) {
+    $scope.questions = Questions.query({id: "7"});
     $scope.onTimeout = function(){
     	$scope.countdown--;
     	if($scope.countdown==0){
@@ -30,7 +30,7 @@ surveyControllers.controller('questionCtrl', ['$scope','$interval','$rootScope',
     	$scope.countdown=10;
     	$scope.stop();
         if($scope.cur==21){
-            location.href="/thankyou/"+$routeParams.id;
+            location.href="/thankyou.html";
         }
     	mytimeout = $interval($scope.onTimeout,1000,10);
 
@@ -43,27 +43,26 @@ surveyControllers.controller('questionCtrl', ['$scope','$interval','$rootScope',
 
 }]);
 
-surveyControllers.controller('videoCtrl', ['$scope','$interval','$rootScope', '$http', 'Videos','$routeParams',
-  function($scope, $interval,$rootScope, $http, Videos, $routeParams) {
+surveyControllers.controller('videoCtrl', ['$scope','$interval','$location', 'Videos',
+  function($scope, $interval, $location, Videos) {
     $scope.videosources = Videos.query(function(){
-        var id=$routeParams.id;
-        $scope.videosrc = $scope.videosources[0].name; 
+        $scope.videosrc = $scope.videosources[1].name; 
     });
     $scope.checker="ABC";
 }]);
 
 
-surveyControllers.controller('instructionCtrl', ['$scope','$interval','$rootScope', '$http','$routeParams',
-  function($scope, $interval, $rootScope, $http,$routeParams) {
+surveyControllers.controller('instructionCtrl', ['$scope','$interval','$location',
+  function($scope, $interval, $location) {
     
     $scope.onTimeout = function(){
-        location.href="/questions/"+$routeParams.id;
     }
 
     var mytimeout = $interval($scope.onTimeout,5000,1);
 
     mytimeout.then(function(data){
         $scope.stop();
+        location.href = '/questions.html';
     });
 
     $scope.stop = function(){
@@ -72,6 +71,7 @@ surveyControllers.controller('instructionCtrl', ['$scope','$interval','$rootScop
 
 }]);
 
-surveyControllers.controller('thankCtrl', ['$scope','$interval','$location','$routeParams',
-  function($scope, $interval, $location,$routeParams) {
+surveyControllers.controller('thankCtrl', ['$scope','$interval','$location',
+  function($scope, $interval, $location) {
+    
 }]);

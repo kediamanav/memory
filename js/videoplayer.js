@@ -78,8 +78,9 @@ function initPlayer(){
             // When the video has concluded, pause it. 
             video.addEventListener('ended', function() {
             	//alert("Video has ended. The questionaire will now begin");
-	        	location.href="/instructions.html";
-                this.currentTime = 0; 
+
+	        	location.href="/instructions/7";
+                this.currentTime = 0;
                 this.pause();
             }, false); 
         },

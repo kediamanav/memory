@@ -1,0 +1,18 @@
+<div class="header_body">
+	<h1 class="main_header">Survey for Video Viewing</h1>
+</div>
+<div class="questionbody">
+	<div class="question_text">
+		<center><h1><b>Questions</b></h1></center>
+		<div class="questiondiv" id="quesdiv">
+			<div ng-repeat="ques in questions" ng-if="cur==($index+1)">
+				<div class="timer" align="right">
+					Time left : {{countdown}}
+				</div>
+				<h2>{{$index+1}}. Did you see <b>{{ques.option}}</b> in the video?</h2>
+				<input type="radio" ng-model="option[$index]" class="options" name="option" value="1" style="margin-left:20px;margin-right:10px;" ng-click="increaseCur()">Yes</input>
+				<input type="radio" ng-model="option[$index]" class="options" name="option" value="0" style="margin-left:40px;margin-right:10px;" ng-click="increaseCur()">No</input>
+			</div>
+		</div>
+	</div>
+</div>
