@@ -1,13 +1,14 @@
 .video_body{
 	background-color:#ffffff;
 	width:1024px;
-	height: 480px;
+	height: 580px;
 	margin: 0 auto;
 }
 
 .video_iframe{
 	align:left;
 	margin-left:40px;
+	margin-top: 40px;
 	float:left;
 	margin-right: 50px;
 }
@@ -40,10 +41,29 @@
 }
 
 .questiondiv{
-	margin-top: 100px;
+	margin-top: 50px;
 }
 
 .timer{
 	align:right;
-	font-size: 20px;
+	font-size: 25px;
+}
+
+.videobodynctr{
+	position: relative;
+	float:left;
+}
+
+.questionbody{
+	background-color:#ffffff;
+	width:1024px;
+	height: 400px;
+	margin: 0 auto;
+}
+
+.instr{
+	background-color:#ffffff;
+	width:1024px;
+	height: 500px;
+	margin: 0 auto;
 }

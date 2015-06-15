@@ -11,8 +11,9 @@ surveyControllers.controller('questionCtrl', ['$scope','$interval','$rootScope',
     $scope.onTimeout = function(){
     	$scope.countdown--;
     	if($scope.countdown==0){
-	    	alert("You failed to answer the question in the stipulated time!");
+            $scope.option[$scope.cur-1]=2;
     		$scope.stop();
+            $scope.increaseCur();
     		//Enter code to reject the response here
     	}
     }
@@ -37,5 +38,25 @@ surveyControllers.controller('questionCtrl', ['$scope','$interval','$rootScope',
 
     $scope.increaseCur();
     $scope.option = [];
+
+}]);
+
+
+surveyControllers.controller('instructionCtrl', ['$scope','$interval','$location',
+  function($scope, $interval, $location) {
+    
+    $scope.onTimeout = function(){
+    }
+
+    var mytimeout = $interval($scope.onTimeout,5000,1);
+
+    mytimeout.then(function(data){
+        $scope.stop();
+        location.href = '/questions.html';
+    });
+
+    $scope.stop = function(){
+        $interval.cancel(mytimeout);
+    }
 
 }]);

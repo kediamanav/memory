@@ -1,0 +1,104 @@
+#videoControls {
+	background: #272824; 
+	background: rgba(39,40,36, .8);
+	border-top: 1px solid white;
+	width: 600px;
+	text-align: left; 
+	position: relative; 
+	overflow: hidden;
+	margin-left: 40px;
+	padding: 8px 0;  
+	opacity: 1;
+}
+
+/* The play, pause buttons. Have to style differently because of their inherant sizes. Sucks a bit. */
+#play { text-shadow: 0 1px 0 black; top: -1px; margin-left: 8px}/*;background: none; border: 0px;}*/
+#pauseButton { position: relative; left: -3px; top: -3px; font-size: 13px;}
+
+
+/* PROGRESS BAR */
+#progress { 
+	cursor: pointer;
+	margin-top:10px;
+}
+
+#progress #progress_box { 
+	float: left; 
+	width: 75%;
+	height: 10px; 
+
+	border: 1px solid #292929; 
+	-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; 
+
+	background: -webkit-gradient(linear, 0 0, 100% 0, from(#c65819), color-stop(.7, #c65819), to(#ab3800));
+	background: -moz-linear-gradient(left, #c65819, #c65819 70%, #ab3800);
+	
+	-webkit-box-shadow: 0 1px 0 #292929, 0 -1px 0 #292929;
+	-moz-box-shadow: 0 1px 0 #292929, 0 -1px 0 #292929;
+	box-shadow: 0 1px 0 #292929, 0 -1px 0 #292929;
+	
+	margin: 0 0 0 5px; 
+	overflow:hidden; 
+}
+
+#progress #play_progress { 
+	display: block; 
+	width: 0px; 
+	height: 8px;
+	
+	background-color: #fff; 
+	background: -webkit-gradient(linear, left top, left bottom, from(#e3e3e3), color-stop(.5, white), to(#e3e3e3));
+	background: -moz-linear-gradient(top, #e3e3e3, white 50%, #e3e3e3);
+	
+	-webkit-border-radius:5px; -moz-border-radius: 5px; border-radius: 5px; 
+}
+
+
+#progress #play_time { 
+	float: left;
+	overflow: hidden;
+	margin: 7px 0 0 5px; 
+	font-size: 10px; 
+	font-weight: normal; 
+	font-family: Helvetica, Arial, sans-serif;  
+	line-height: 1;
+}
+
+#muteimage{
+	width:15px;
+	height:18px;
+}
+
+#fsimage{
+	width:15px;
+	height:18px;
+}
+
+#mute{
+	position:relative;
+}
+
+#volDn{
+	width: 25px;
+	margin-left: 15px;
+	position:relative;
+}
+
+#volUp{
+	width: 25px;	
+	position:relative;
+}
+
+#button_controls{
+	position:relative;
+	float:left;
+}
+
+#fsdiv{
+	float:right;
+	margin-top:-10px;
+}
+
+#fullScreen{
+	margin-right:10px;
+}
