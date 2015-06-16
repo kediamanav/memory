@@ -1,16 +1,13 @@
 var express    = require("express");
 var mysql      = require('mysql');
-var app=express();
 
-var pool = mysql.createPool({
-  connectionLimit : 100,
+var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
   password : '',
-  database : 'memory',
-  debug    : false
+  database : 'memory'
 });
-
+var app=express();
 app.use(express.static('public'));
 var bodyParser = require('body-parser');
 
@@ -18,46 +15,14 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 
-function handle_database(req,res,query) {
-    
-    pool.getConnection(function(err,connection){
-        if (err) {
-          connection.release();
-	      console.log('Error while performing Query.' + err);
-          //res.json({"code" : 100, "status" : "Error in connection database"});
-          return;
-        }   
-
-        console.log('connected as id ' + connection.threadId);
-        
-        connection.query(query, function(err, rows, fields) {
-          connection.release();
-		  if (!err)
-		  	console.log("Successfully added to database");
-		    //console.log('The solution is: ', rows);
-		  else{
-		     console.log('Error while performing Query.' + err);
-          	 //res.json({"code" : 100, "status" : "Error in connection database"});
-			}
-		});
-
-        connection.on('error', function(err) {      
-		     console.log('Error while performing Query.' + err);
-	         //res.json({"code" : 100, "status" : "Error in connection database"});
-	         return;     
-        });
-  });
-}
-
-
-/*connection.connect(function(err){
+connection.connect(function(err){
 	if(!err){
 		console.log("Databse is connected ...\n\n");
 	}
 	else{
 		console.log("Error connecting database ... \n\n");
 	}
-});*/
+});
 
 app.get('/', function(req, res) {
 	console.log("Inside get function");
@@ -66,7 +31,7 @@ app.get('/', function(req, res) {
 
 app.post('/getSequence', function(req, res) {
 	console.log("Inside getSequence post function");
-	res.send(JSON.stringify({id:1}));
+	res.send(JSON.stringify({id:3}));
 });
 
 app.post('/response',function(req,res){
@@ -123,8 +88,16 @@ app.post('/response',function(req,res){
 	}
 	colValues+=")"
 	var query = "INSERT INTO survey "+colNames+" values "+colValues+";";
-	
-	handle_database(req,res,query);
+	//console.log(query);
+	//sql query
+	connection.query(query, function(err, rows, fields) {
+	  if (!err)
+	  	console.log("Successfully added to database");
+	    //console.log('The solution is: ', rows);
+	  else
+	    console.log('Error while performing Query.' + err);
+	});
+
 });
 
 var server = app.listen(3000, function () {
