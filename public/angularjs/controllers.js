@@ -4,6 +4,16 @@
 
 var surveyControllers = angular.module('surveyControllers', []);
 
+surveyControllers.controller('mainCtrl', ['$scope','$rootScope', 'Sequence','$location',
+  function($scope, $rootScope, Sequence, $location) {
+    console.log("Inside mainctrl");
+    Sequence.save(function(response,header){
+        console.log("res");
+        $location.path('/home/'+response.id);
+        console.log("Redirected");
+    });
+}]);
+
 surveyControllers.controller('videoCtrl', ['$scope','$interval','$rootScope', 'Videos','$routeParams','$location',
   function($scope, $interval,$rootScope, Videos, $routeParams, $location) {
     $scope.videosources = Videos.query(function(){

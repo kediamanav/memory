@@ -22,9 +22,17 @@ surveyApp.factory('PostResponse',function($resource){
     return $resource('/response',{}, {query: {method:'GET',  isArray:true}, 'save':   {method:'POST'}});
 });
 
+surveyApp.factory('Sequence',function($resource){
+    return $resource('/getSequence',{}, {query: {method:'GET',  isArray:true}, 'save':   {method:'POST'}});
+});
+
 surveyApp.config(['$routeProvider','$locationProvider',
   function($routeProvider,$locationProvider) {
     $routeProvider.
+      when('/', {
+        templateUrl: '/partials/main.html',
+        controller: 'mainCtrl'
+      }).
       when('/home/:id', {
         templateUrl: '/partials/home.html',
         controller: 'videoCtrl'
@@ -42,7 +50,7 @@ surveyApp.config(['$routeProvider','$locationProvider',
         controller: 'thankCtrl'
       }).
       otherwise({
-        redirectTo: '/home/1'
+        redirectTo: '/'
       });
       $locationProvider.html5Mode(true);
 }]);

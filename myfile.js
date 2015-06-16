@@ -25,6 +25,12 @@ connection.connect(function(err){
 
 app.get('/', function(req, res) {
 	console.log("Inside get function");
+	//es.redirect("/home/1");
+});
+
+app.post('/getSequence', function(req, res) {
+	console.log("Inside getSequence post function");
+	res.send(JSON.stringify({id:3}));
 });
 
 app.post('/response',function(req,res){
