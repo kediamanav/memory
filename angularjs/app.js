@@ -6,7 +6,8 @@
 var surveyApp = angular.module('surveyApp', [
   'ngRoute',
   'ngResource',
-  'surveyControllers'
+  'surveyControllers',
+  'surveyServices'
 ]);
 
 surveyApp.factory('Questions',function($resource){
@@ -37,7 +38,7 @@ surveyApp.config(['$routeProvider','$locationProvider',
         controller: 'thankCtrl'
       }).
       otherwise({
-        redirectTo: '/questions/1'
+        redirectTo: '/home/1'
       });
       $locationProvider.html5Mode(true);
 }]);

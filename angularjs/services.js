@@ -2,20 +2,21 @@
 
 /* Services */
 
-/*
-var phonecatServices = angular.module('phonecatServices', ['ngResource']);
 
-phonecatServices.factory('Phone', ['$resource',
-  function($resource){
-    return $resource('phones/:phoneId.json', {}, {
-      query: {method:'GET', params:{phoneId:'phones'}, isArray:true}
-    });
-  }]);
-*/
-/*
-phonecatServices.factory('Camera', ['$resource',
-  function($resource){
-    return $resource('search/', {}, {
-      query: {method:'GET', {}, isArray:true}
-    });
-  }]);*/
+var surveyServices = angular.module('surveyServices', []);
+
+surveyServices.service('Choices', function(){
+  var options = [];
+
+  return {
+    getOption:function(){
+      return options;
+    },
+    getOptionVal:function(i){
+      return options[i];
+    },
+    setOptionVal:function(i,val){
+      options[i]=val;
+    }
+  }
+});

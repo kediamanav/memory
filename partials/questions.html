@@ -11,8 +11,8 @@
 				</div>
 				<h2>{{$index+1}}. Did you see <b>{{ques.option}}</b> in the video?</h2>
 				<center>
-					<button ng-model="option[$index]" class="btn" name="option" value="1" style="width:60px;height:40px;margin-top:30px" ng-click="increaseCur()">Yes</button>
-					<button ng-model="option[$index]" class="btn" name="option" value="0" style="width:60px;height:40px;margin-left:40px;margin-top:30px;" ng-click="increaseCur()">No</button>
+					<button class="btn" name="option" value="1" style="width:60px;height:40px;margin-top:30px" ng-click="increaseCur(1)">Yes</button>
+					<button class="btn" name="option" value="0" style="width:60px;height:40px;margin-left:40px;margin-top:30px;" ng-click="increaseCur(0)">No</button>
 				</center>
 			</div>
 		</div>
