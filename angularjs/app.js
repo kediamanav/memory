@@ -18,6 +18,10 @@ surveyApp.factory('Videos',function($resource){
     return $resource('./data/videos.json', {}, {query: {method:'GET', isArray:true}, 'save':   {method:'POST'}});
 });
 
+surveyApp.factory('PostResponse',function($resource){
+    return $resource('/response',{}, {query: {method:'GET',  isArray:true}, 'save':   {method:'POST', isArray:true}});
+});
+
 surveyApp.config(['$routeProvider','$locationProvider',
   function($routeProvider,$locationProvider) {
     $routeProvider.

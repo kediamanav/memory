@@ -78,11 +78,17 @@ surveyControllers.controller('questionCtrl', ['$scope','$interval','$rootScope',
 
     $scope.increaseCur(0);
     //$scope.option = [];
-
 }]);
 
 
-surveyControllers.controller('thankCtrl', ['$scope','$interval','$location','$routeParams','Choices',
-  function($scope, $interval, $location,$routeParams, Choices) {
-    $scope.options = Choices.getOption();
+surveyControllers.controller('thankCtrl', ['$scope','$interval','$location','$routeParams','Choices','PostResponse',
+  function($scope, $interval, $location,$routeParams, Choices, PostResponse) {
+    $scope.data = {};
+    $scope.data.options = Choices.getOption();
+    $scope.data.id = $routeParams.id;
+    $scope.result = PostResponse.save($scope.data,function(response,header){
+        console.log("Successful");
+    },function(response,header){
+        console.log("Failed");
+    });
 }]);
