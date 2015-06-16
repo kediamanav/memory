@@ -10,8 +10,10 @@
 					Time left : {{countdown}}
 				</div>
 				<h2>{{$index+1}}. Did you see <b>{{ques.option}}</b> in the video?</h2>
-				<input type="radio" ng-model="option[$index]" class="options" name="option" value="1" style="margin-left:20px;margin-right:10px;" ng-click="increaseCur()">Yes</input>
-				<input type="radio" ng-model="option[$index]" class="options" name="option" value="0" style="margin-left:40px;margin-right:10px;" ng-click="increaseCur()">No</input>
+				<center>
+					<button ng-model="option[$index]" class="btn" name="option" value="1" style="width:60px;height:40px;margin-top:30px" ng-click="increaseCur()">Yes</button>
+					<button ng-model="option[$index]" class="btn" name="option" value="0" style="width:60px;height:40px;margin-left:40px;margin-top:30px;" ng-click="increaseCur()">No</button>
+				</center>
 			</div>
 		</div>
 	</div>

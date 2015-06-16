@@ -78,8 +78,7 @@ function initPlayer(){
             // When the video has concluded, pause it. 
             video.addEventListener('ended', function() {
             	//alert("Video has ended. The questionaire will now begin");
-
-	        	location.href="/instructions/7";
+                angular.element(document.getElementById('main_div')).scope().gotoInstr();
                 this.currentTime = 0;
                 this.pause();
             }, false); 
@@ -165,10 +164,10 @@ function initPlayer(){
     document.getElementById("mute").addEventListener("click", function (evt) {
         if (video.muted) {
             video.muted = false;
-            evt.target.innerHTML = "<img id='muteimage' alt='volume on button' src='images/unmute.png' />"
+            document.getElementById("mute").innerHTML = "<img id='muteimage' alt='volume on button' src='/images/unmute.png' />"
         } else {
             video.muted = true;
-            evt.target.innerHTML = "<img id='muteimage' alt='volume off button' src='images/mute.png' />"
+            document.getElementById("mute").innerHTML = "<img id='muteimage' alt='volume off button' src='/images/mute.png' />"
         }
     }, false);
     
